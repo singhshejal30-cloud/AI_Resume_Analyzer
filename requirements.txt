@@ -1,0 +1,6 @@
+pandas
+numpy
+re
+string
+nltk
+PyPDF2
