@@ -155,11 +155,20 @@ Upload your resume and get AI-powered analysis
 
 
 # ================= LOAD DATA =================
-@st.cache_data
-def load_dataset():
-    return pd.read_csv("dataset9/training_data.csv")
+# @st.cache_data
+# def load_dataset():
+#     return pd.read_csv("dataset9/training_data.csv")
 
-df = load_dataset()
+# df = load_dataset()
+
+import zipfile
+import os
+
+if not os.path.exists("dataset9") and os.path.exists("dataset9.zip"):   #hear ihad changed
+    with zipfile.ZipFile("dataset9.zip", "r") as zip_ref:
+        zip_ref.extractall(".")
+
+dataset_path = "dataset9"
 
 # ================= CLEAN TEXT =================
 def clean_text(text):
